@@ -1,27 +1,26 @@
 import React from 'react'
-import Head from 'next/head'
-import { ToastContainer } from 'react-toastify'
 import type { AppProps } from 'next/app'
-import { Provider } from 'react-redux'
 import '../assets/global.scss'
+import '../assets/index.css'
 import 'react-toastify/dist/ReactToastify.css'
-import store from '../data/store'
 import Footer from '../layouts/Footer/Footer'
-const MyApp = ({ Component, pageProps}:AppProps) => {
+import  { Sidebar }  from '../layouts/Sidebar'
+import { StyledEngineProvider } from '@mui/styled-engine'
+import { Provider } from 'react-redux'
+import store from '../data/store'
+import { SidebarNew } from '../layouts/SidebarNew/SidebarNew'
+
+function App ({Component, pageProps}: AppProps) {
   return (
-  <Provider store={store}>
-      <Head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>CardSlide</title>
-      </Head>
-      <div className='theme-2'>
-        <div className='back'/>
-        <ToastContainer theme="dark"/>
-        <Component {...pageProps} />
-        <Footer />
-      </div>
-    </Provider>
+    <div className="flex bg-[#E5E5E5]">
+      <Provider store={store}>
+        <StyledEngineProvider injectFirst>
+          <SidebarNew />
+          <Component {...pageProps}/>
+        </StyledEngineProvider>
+      </Provider>
+    </div>
   )
 }
 
-export default MyApp
+export default App

@@ -1,6 +1,11 @@
-import MenuContainer  from '../features/GenericApp/containers/MenuContainer'
+import React from 'react'
+import { TemplateForm } from '../features/Template';
 
-const Home = () => <MenuContainer />
 
+const Home = () =>{
+  return (
+    <TemplateForm />
+  )
+}
 
 export default Home

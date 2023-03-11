@@ -26,19 +26,3 @@
 @media (min-width:940px){
   .responsive-2 { width: 25%;}
 }
-
-.responsive-3 {
-  transition: 0.5s;
-}
-@media (max-width:460px){
-  .responsive-3 { width: 90%;}
-}
-@media (min-width:460.01px){
-  .responsive-3 { width: 50%;}
-}
-@media (min-width:800px){
-  .responsive-3 { width: 40%;}
-}
-@media (min-width:940px){
-  .responsive-3 { width: 30%;}
-}

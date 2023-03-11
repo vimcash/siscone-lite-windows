@@ -1,1 +1,0 @@
-export const isNumber = (inParam:string) => `${Number(inParam)}` != "NaN"
