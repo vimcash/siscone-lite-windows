@@ -1,5 +1,5 @@
 import React from 'react'
-import IconByName from '../IconByName'
+import { IconByName } from '../IconByName'
 
 export const Button = 
   ({onClick, title, className, icon, primary, left}:any) => 

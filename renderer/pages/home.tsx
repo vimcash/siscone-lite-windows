@@ -1,6 +1,6 @@
-import MenuContainer  from '../features/GenericApp/containers/MenuContainer'
+import { MainMenu } from "../features/genericApp";
 
-const Home = () => <MenuContainer />
 
+const Home = () => <MainMenu />
 
 export default Home

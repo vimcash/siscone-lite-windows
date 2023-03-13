@@ -198,3 +198,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   bottom: 2px;
   z-index: 1;
 }
+
+.hp1-50 {
+  height: calc(50% - 0.25rem);
+}
