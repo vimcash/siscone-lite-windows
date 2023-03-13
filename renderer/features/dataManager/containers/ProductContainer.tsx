@@ -5,7 +5,7 @@ import ProductFrame from '../components/ProductFrame/ProductFrame'
 export const ProductContainer = () => {
   return <>
     <Navbar 
-      title="Menu"
+      title="Productos"
       onClickRightButton={() => console.log('Prueba')}
       home/>
     <div className='container-fluid'>

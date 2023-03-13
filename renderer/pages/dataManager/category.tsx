@@ -1,8 +1,7 @@
 import React from 'react'
-import { CategoryContainer } from '../../features/genericApp'
 
 const Category = () => {
-  return <CategoryContainer />
+  return <label>Hola</label>
 }
 
 export default Category

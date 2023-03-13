@@ -165,11 +165,13 @@ button > span > label {
 
 .p-table {
   overflow-y: auto;
+  width: 100%;
+  height: calc(100% - 11rem);
+}
+.hhp-1 {
   width: -webkit-fill-available;
   height: -webkit-fill-available;
-  margin-bottom: 6em;
 }
-
 .stats {
   bottom: 0;
   padding-bottom: 1.5em;
@@ -201,4 +203,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .hp1-50 {
   height: calc(50% - 0.25rem);
+}
+
+.hp-2 {
+  height: 60px;
 }

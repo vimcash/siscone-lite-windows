@@ -1,5 +1,5 @@
 import React from 'react'
-import { ProductContainer } from '../../features/genericApp'
+import { ProductContainer } from '../../features/dataManager'
 
 const Product = () => {
   return <ProductContainer />

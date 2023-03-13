@@ -2,7 +2,7 @@ import Link from 'next/link'
 import React from 'react'
 import { Button } from '../../../../components/ui'
 
-const MenuFrame = () => {
+const MenuFrame = ({router}:any) => {
   return (
     <div className='row position-absolute w-100 pps-2 pe-1 ps-1'>
       <div className=" col-md-6 p-1">
@@ -19,13 +19,11 @@ const MenuFrame = () => {
           onClick={() => console.log('prueba')} />
       </div>
       <div className=" col-md-6 p-1">
-        <Link href='/dataManager/product'>
-          <Button 
-            title="Centro de Datos" 
-            icon="report" 
-            className="w-100 h-100 fs-1"
-            onClick={() => console.log('prueba')}/>
-        </Link>
+        <Button 
+          title="Centro de Datos" 
+          icon="report" 
+          className="w-100 h-100 fs-1"
+          onClick={() => router.push('dataManager/product')}/>
       </div>
     </div>
   )
