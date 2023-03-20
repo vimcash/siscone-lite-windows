@@ -4,7 +4,7 @@ export const ComboBox = ({className, inOptions, onChange, value}:{className:stri
     <div className={`${className} p-0`}>
       <select className="form-select" onChange={onChange} value={value}>
         {
-          options.map(option => !option.value ? <option value={option} key={option}>{option}</option> : <option value={option.value} key={option.value}>{option.title}</option>)
+          options.map(option => !option.id ? <option value={option} key={option}>{option}</option> : <option value={option.id} key={option.id}>{option.displayName}</option>)
         }
       </select>
     </div>

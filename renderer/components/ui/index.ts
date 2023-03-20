@@ -1,6 +1,5 @@
 export { IconByName } from "./IconByName"
 export { Button } from "./Button/Button"
-export { ComboBox } from "./ComboBox/ComboBox"
 export { RadioButton } from "./RadioButton/RadioButton"
 export { Table } from "./Table/Table"
 export { TitleValueLabel } from "./TitleValueLabel/TitleValueLabel"

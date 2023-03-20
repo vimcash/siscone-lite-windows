@@ -1,0 +1,32 @@
+.btnIcon > span > svg {
+  position: relative;
+  bottom: 2.5px;
+}
+
+.input {
+  width: -webkit-fill-available;
+}
+.table {
+  height: 76%;
+  transition: 0.2s;
+}
+
+@media (max-height:653px){
+  .table { height: 75% !important;}
+}
+
+@media (max-height:627px){
+  .table { height: 74% !important;}
+}
+
+@media (max-height:597px){
+  .table { height: 72% !important;}
+}
+
+@media (max-height:556px){
+  .table { height: 70% !important;}
+}
+
+@media (max-height:533px){
+  .table { height: 68% !important;}
+}

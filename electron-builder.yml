@@ -1,6 +1,6 @@
 appId: com.example.nextron
-productName: CardSlide
-copyright: Copyright © 2023 Raian Gil
+productName: Siscone
+copyright: Copyright © 2023 Vim Solutions
 directories:
   output: dist
   buildResources: resources

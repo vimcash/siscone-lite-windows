@@ -33,7 +33,7 @@
     --bs-btn-disabled-color: var(--bsp-color-white);
     --bs-btn-disabled-bg: var(--bsp-btn-1);
     --bs-btn-disabled-border-color: var(--bsp-btn-1);
-
+    border: none;
     svg {
       color: var(--bsp-btn-font-color) !important
     }
@@ -111,7 +111,7 @@
     }
     
   }
-  select {
+  .select {
     background: var(--bsp-btn-1);
     color: var(--bsp-btn-font-color);
     border: 1px solid var(--bsp-btn-1);

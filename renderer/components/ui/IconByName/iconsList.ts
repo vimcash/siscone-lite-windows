@@ -2,12 +2,13 @@ import { FaFileCsv } from 'react-icons/fa'
 import { BsFillCreditCard2BackFill, BsFillCalendarDateFill } from 'react-icons/bs'
 import { RiFileChartFill } from 'react-icons/ri'
 import { MdSettings, MdCancel } from 'react-icons/md'
-import { IoIosSave } from 'react-icons/io'
+import { IoIosSave, IoMdAdd } from 'react-icons/io'
 import { TiArrowBack } from 'react-icons/ti'
 import { SiMicrosoftexcel } from 'react-icons/si'
 import { CgDetailsMore } from 'react-icons/cg'
+import { FiSearch } from 'react-icons/fi'
 
-export type IconsType = "fileCsv" | "card" | "report" | "setting" | "save" | "cancel" | "back" | "excel" | "calendar" | "moreDetails"
+export type IconsType = "fileCsv" | "card" | "report" | "setting" | "save" | "cancel" | "back" | "excel" | "calendar" | "moreDetails" | "add" | 'search'
 
 export const iconsList = {
   fileCsv: FaFileCsv,
@@ -15,6 +16,8 @@ export const iconsList = {
   report: RiFileChartFill,
   setting: MdSettings,
   save: IoIosSave,
+  add: IoMdAdd,
+  search: FiSearch,
   cancel: MdCancel,
   back: TiArrowBack,
   excel: SiMicrosoftexcel,
