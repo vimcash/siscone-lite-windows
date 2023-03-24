@@ -10,6 +10,11 @@
   height: 76%;
   transition: 0.2s;
 }
+.inputName {
+  width: 100%;
+  padding-top: 0.25rem;
+  display: flex;
+}
 
 @media (max-height:653px){
   .table { height: 75% !important;}

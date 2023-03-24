@@ -1,5 +1,5 @@
 import style from './style.module.css'
-export const ComboBox = ({className, inOptions, onChange, value}:{className:string, inOptions:string[]|any[], onChange:any, value:string}) => {
+export const ComboBox = ({className, inOptions, onChange, value}:{className:string, inOptions:string[]|any[], onChange:any, value:any}) => {
   const options = [...new Set(inOptions)]
   return (
     <div className={`${className} ${style.container}`}>

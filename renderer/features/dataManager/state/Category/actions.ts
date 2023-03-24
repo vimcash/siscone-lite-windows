@@ -1,8 +1,11 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 
 const actions = {
-  setCategory: (state:any, {payload}:PayloadAction<string>) => {
-
+  setCategoryID: (state:any, {payload}:PayloadAction<number>) => {
+    state.categoryID = payload
+  },
+  setCleanCategoryID: (state:any) => {
+    state.categoryID = ''
   }
 }
 
