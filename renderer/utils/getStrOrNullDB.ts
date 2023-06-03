@@ -1,0 +1,1 @@
+export const getStrOrNullDB = (value:string, number=false) => `${value ? `${number ? `'${value}'`: value}` : "NULL"}`

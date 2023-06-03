@@ -1,2 +1,2 @@
+export type { Client } from './Client';
 export type { Product } from './Product';
-// export type { Product } from './Product';

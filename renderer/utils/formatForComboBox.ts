@@ -1,3 +1,3 @@
 import { getColumnByIndex } from "./getColumnByIndex"
 
-const formatForComboBox = (data:any[], displayNamePos:number = 1, idPos:number = 0) => data.map(category => ({id: getColumnByIndex(category, 0), displayName: getColumnByIndex(category, 1)}))
+export const formatForComboBox = (data:any[], displayNamePos:number = 1, idPos:number = 0) => data.map(item => ({id: getColumnByIndex(item, idPos), displayName: getColumnByIndex(item, displayNamePos)}))

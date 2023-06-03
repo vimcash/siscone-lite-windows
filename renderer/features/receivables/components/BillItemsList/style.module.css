@@ -1,0 +1,55 @@
+.subtitle {
+  color: white;
+  font-style: italic;
+}
+.mainContent {
+  display: flex;
+  justify-content: space-between;
+  line-height: 12px;
+  margin-bottom: 10px;
+}
+
+.mainContent > span {
+  color: #0b5ed7;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.hr {
+  height: 2px;
+  margin: 0;
+  opacity: 1;
+  background: rgba(255,255,255,.2);
+  margin-top: 12px;
+  transition: .5s;
+}
+
+.itemContainer {
+  padding-top: 3px;
+  transition: .5s;
+}
+
+.selected {
+  background: rgba(31,144,222,0.2)!important;
+}
+
+.itemContainer > div {
+  padding: 0 10px;
+}
+.itemContainer:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.itemContainer:hover > hr, .selected > hr {
+  opacity: 0;
+}
+
+.selected > .mainContent > span {
+  color: white;
+}
+
+.container {
+  overflow-y: auto;
+  height: 81vh;
+  padding-bottom: 9px;
+}

@@ -1,0 +1,24 @@
+.input {
+  padding: 0.5em;
+  margin:0.25em 0;
+}
+.inputNumber > input {
+  width: 100%;
+  height: 30px;
+  padding: 0 .25em;
+}
+.button {
+  width: 100%;
+}
+.btnContainer {
+  position: absolute;
+  width: -webkit-fill-available;
+  bottom: 0;
+  margin-bottom: 28px;
+  padding-right: 12px;
+  justify-content: space-between;
+  display: flex;
+}
+.btnContainer > button {
+  width: 49.5%;
+}

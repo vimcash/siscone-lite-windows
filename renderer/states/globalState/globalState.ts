@@ -1,12 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit"
 import { AppState } from "../../data/store/types"
-import { getLocalStorage } from "../../utils";
 import actions from "./actions"
 
 const pjson = require('../../../package.json');
-const currPage = getLocalStorage('currPage')
 const initialState = {
-  currPage: currPage,
+  currPage: 'home',
+  appTitle: 'Menu',
   version: pjson.version,
   dbHost: '127.0.0.1',
   adminPass: '52401'
@@ -29,6 +28,6 @@ export const selectDbHost = (state: AppState) => state.global.dbHost
 export const selectGlobal = (state: AppState) => state.global
 export const selectEntireState = (state: AppState) => state
 
-export const { setCurrPage, setFirstTime } = globalSlice.actions
+export const { setCurrPage } = globalSlice.actions
 
 export default globalSlice.reducer

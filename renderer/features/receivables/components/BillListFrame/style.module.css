@@ -1,0 +1,11 @@
+.input {
+  padding: 0.5em;
+  margin:0.25em 0;
+}
+.floatBtn{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0 35px 30px 0;
+  z-index: 1;
+}

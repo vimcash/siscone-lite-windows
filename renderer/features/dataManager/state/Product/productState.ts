@@ -4,6 +4,7 @@ import { AppState } from "../../../../data/store/types"
 import { useAddDBProduct, useGetDBProduct } from "../../hooks"
 import { Product } from "../../interfaces"
 import actions from "./actions"
+import { getColumnByIndex } from "../../../../utils"
 
 const initialState:Product = {
   code: '',
@@ -31,8 +32,9 @@ const productSlice = createSlice({
         state.status = 'idle'
         state.code = ''
         state.name = ''
-        state.itemList = payload.list
-        state.filterList = payload.list
+        const formatedList = payload.map(product => ({...product, id: getColumnByIndex(product, 3), displayName: getColumnByIndex(product, 0)}))
+        state.itemList = formatedList
+        state.filterList = formatedList
         toast.success('Producto creado Exitosamente');
       })
       .addCase(useGetDBProduct.pending, (state) => {
@@ -44,8 +46,9 @@ const productSlice = createSlice({
       })
       .addCase(useGetDBProduct.fulfilled, (state, {payload}:PayloadAction<any>) => {
         state.status = 'idle'
-        state.itemList = payload
-        state.filterList = payload
+        const formatedList = payload.map(product => ({...product, id: getColumnByIndex(product, 3), displayName: getColumnByIndex(product, 0)}))
+        state.itemList = formatedList
+        state.filterList = formatedList
       })
   },
 })

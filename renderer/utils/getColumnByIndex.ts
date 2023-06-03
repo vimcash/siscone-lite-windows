@@ -1,1 +1,1 @@
-export const getColumnByIndex = (object, index) => object[Object.keys(object)[index]]
+export const getColumnByIndex = (object, index) => object ? object[Object.keys(object)[index]] : undefined

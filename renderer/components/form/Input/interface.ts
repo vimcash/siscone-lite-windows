@@ -5,5 +5,6 @@ export interface Inteface {
   placeholder: string,
   onChange: any,
   onPressEnter?: any,
-  autoFocus?: boolean
+  autoFocus?: boolean,
+  type?: "number" | "text"
 }

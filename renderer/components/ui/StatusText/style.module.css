@@ -1,0 +1,26 @@
+.components {
+  font-size: 11px;
+  border-radius: 11px;
+  border: 2px solid;
+  padding: 1px 5px;
+  display: inline-block;
+  vertical-align: text-top;
+  margin-left: 5px;
+}
+.success {
+  background: rgb(119 247 119);
+  color: rgba(0,0,0,.52);
+}
+.error {
+  background: rgb(221 49 49);
+  color: rgb(255 255 255 / 52%);
+}
+.warning {
+  background: rgb(255 177 0);
+  color: rgb(0 0 0 / 70%);
+}
+.disabled {
+  background: rgb(119 119 119 );
+  color: rgba(255,255,255,.6);
+  opacity: .6;
+}

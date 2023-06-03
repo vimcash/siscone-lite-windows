@@ -15,7 +15,6 @@ export const AdminFilterPad = ({
   onChangeDateFrom,
   onChangeDateTo,
 }) => {
-  console.log("radioValue", radioValue)
   return (
     <div className="row pe-2 ps-2">
       <RadioButton 

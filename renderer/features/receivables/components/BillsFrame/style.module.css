@@ -1,0 +1,30 @@
+.inputSearch {
+  padding: 0.5em;
+  margin:0.25em 0;
+}
+.input > * {
+  height: 36px;
+}
+.input {
+  width: -webkit-fill-available;
+}
+.input > input {
+  width: 100%;
+}
+.btnAdd {
+  margin-left: .25em;
+}
+.specialBtnContainer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin:0 12px 25px 0;
+  z-index: 0;
+}
+.specialBtnContainer > button {
+  margin: 2px;
+  padding: .5em 1em;
+}
+.specialBtnContainer > button {
+  font-size: 1.2em;
+}

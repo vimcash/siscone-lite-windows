@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import { useAppDispatch } from '../../../hooks'
+import { useAppDispatch, useAppSelector } from '../../../hooks'
 import { Navbar } from '../../../layouts/Navbar'
 import { Popup } from '../Popup/Popup'
 
@@ -12,8 +12,10 @@ const AppFrame = ({Component, pageProps}:any) => {
       dispatch={dispatch}/>   
     <Navbar 
       title="Productos"
-      onClickRightButton={() => console.log('Prueba')}
-      home />
+      router={router}
+      dispatch={dispatch}
+      onClickRightButton={() => console.log('Prueba')} />
+
     <div className='container-fluid'>
       <Component dispatch={dispatch} router={router} {...pageProps} />
     </div>
