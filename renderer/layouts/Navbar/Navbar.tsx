@@ -19,6 +19,7 @@ export const Navbar =
           }
           <div className="d-flex">
             <Button icon={home ? "setting":"back"} className="ppr-1" onClick={() => onClickRightButton()}/>
+            <Button icon={home ? "setting":"back"} className="ppr-1 ms-1" onClick={() => onClickRightButton()}/>
           </div>
         </div>
       </nav>

@@ -1,4 +1,4 @@
-import { Button, ComboBox, RadioButton } from ".."
+import { Button, RadioButton } from ".."
 import { CalendarButton, InputLabel } from "../../form"
 
 export const AdminFilterPad = ({ 
@@ -34,11 +34,6 @@ export const AdminFilterPad = ({
         onChangeValue={e => onChangeDateTo(e)}
         value={dateTo}
         className="col-sm-auto p-0 me-1 mb-1"/>
-      <ComboBox 
-        className="col-sm-auto mb-1 me-1" 
-        inOptions={categories}
-        onChange={e => onChangeComboBox(e.target.value)}
-        value={selectedCategory}/>
       <Button
         className="col-sm-auto mb-1 me-1"
         icon="report"

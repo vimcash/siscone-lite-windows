@@ -1,7 +1,7 @@
 import { Request } from "../utils/interfaces/Request"
 import runner from 'axios'
 
-const axios = ({type, url, data}:Request) => {
+export const axios = ({type, url, data}:Request) => {
   switch(type){
     case 'GET': 
       return runner.get(url)

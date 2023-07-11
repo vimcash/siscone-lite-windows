@@ -12,8 +12,7 @@ const AppFrame = ({Component, pageProps}:any) => {
       dispatch={dispatch}/>   
     <Navbar 
       title="Productos"
-      onClickRightButton={() => console.log('Prueba')}
-      home />
+      onClickRightButton={() => console.log('Prueba')} home />
     <div className='container-fluid'>
       <Component dispatch={dispatch} router={router} {...pageProps} />
     </div>
