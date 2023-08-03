@@ -10,8 +10,10 @@ import { Button } from '../../../../components/ui'
 const BillListFrame = ({dispatch, router}) => {
   const state = useAppSelector(selectEntireState)
   const {
-    bills,
-    billsList,
+    getSelectedBillID,
+    getBillsList,
+    getSearchBill,
+    onChangeFilter,
     redirect,
     onClickBill
   } = Controller.getInstance(dispatch, state.bills, router)
@@ -20,13 +22,13 @@ const BillListFrame = ({dispatch, router}) => {
       name="iptSearch" 
       className={style.input} 
       placeholder="Busca un Producto..." 
-      value="" 
-      onChange={e => console.log(e)}/>
-    <div className="row"></div>
+      value={getSearchBill()} 
+      onChange={onChangeFilter}
+      autoFocus/>
     <BillItemList 
       onClick={onClickBill}
-      dataSource={billsList || []} 
-      selectedItem={bills ? bills.selectedBillID : ""}
+      dataSource={getBillsList()} 
+      selectedItem={getSelectedBillID()}
       onDoubleClick={redirect}/>
     <Button 
       title="Crear Factura" 

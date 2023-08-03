@@ -2,14 +2,20 @@ import { useAddDBClient } from "../../../features/dataManager/hooks"
 import { Client } from "../../../features/dataManager/interfaces"
 import { setFocus } from "../../../utils"
 import { hidePopup, setCheckBox, setInput1, setInput2, setInput3, setInput4 } from "./state/popupState"
+import { useAddDBCategory } from "../../../features/dataManager/hooks"
+import { useRunComplete } from "../../../features/receivables/hooks"
 
 let dispatch
 class Controller {
   static instace: Controller
-  public state
-
+  private state
+  private saveTypes:any[] = [
+    {type: 'addCategory', title: 'Agregar Categoria', placeholder: 'Nombre de la categoria', function: (e:any) => useAddDBCategory(e), iptType: 'text'},
+    {type: 'completeBill', title: 'Monto a pagar', placeholder: 'Monto', function: (e:any) => useRunComplete(e), iptType: 'number'}
+  ]
   constructor(inDispatch, state) {
     this.state = state
+    console.log(state)
     dispatch = inDispatch
   }
 
@@ -31,7 +37,7 @@ class Controller {
   }
 
   validate(required=false) {
-    const { input1, input2, input3, input4, check1 } = Controller.instace.state.popup
+    const { input1, input2, input3, input4, check1 } = this.state
     if(!input4.trim() && !required)
       setFocus("iptInput4")
     if(!input3.trim() && !required)
@@ -50,7 +56,7 @@ class Controller {
   }
 
   public save = () => {
-    const { input1, input2, input3, input4, check1 } = Controller.instace.state.popup
+    const { input1, input2, input3, input4, check1 } = this.state
     if(Controller.instace.validate(true)){
       const client:Client = {
         name: input1.trim(),
@@ -67,10 +73,28 @@ class Controller {
   closePopup() {
     dispatch(hidePopup())
   }
+
+  private getPopupInfo = () => this.saveTypes.find(saveType => saveType.type == this.getType())
   public setInput1 = (e:string) => dispatch(setInput1(e))
   public setInput2 = (e:string) => dispatch(setInput2(e))
   public setInput3 = (e:string) => dispatch(setInput3(e))
   public setInput4 = (e:string) => dispatch(setInput4(e))
+  public getType = () => this.state.type
+  public getInput1 = () => this.state.input1
+  public getInput2 = () => this.state.input2
+  public getInput3 = () => this.state.input3
+  public getInput4 = () => this.state.input4
+  public getCheck1 = () => this.state.check1
+  public getBills = () => ({...this.state.bills, billPrice: Number(this.getInput1())})
+  public getCategoryName = () => ({categoryName: this.getInput1()})
+  public getPopupTitle = () => this.getPopupInfo().title
+  public getPopupPlaceholder = () => this.getPopupInfo().placeholder
+  public getPopupInputType = () => this.getPopupInfo().iptType
+
+  public saveSingle = async () => {
+    const obj = this.getType() == 'addCategory' ? this.getCategoryName() : this.getBills()
+    await dispatch(this.getPopupInfo().function(obj)).then(async() => dispatch(hidePopup()))
+  }
 }
 
 export default Controller

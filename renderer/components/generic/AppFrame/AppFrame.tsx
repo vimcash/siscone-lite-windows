@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import React from 'react'
-import { useAppDispatch, useAppSelector } from '../../../hooks'
+import { useAppDispatch } from '../../../hooks'
 import { Navbar } from '../../../layouts/Navbar'
 import { Popup } from '../Popup/Popup'
 

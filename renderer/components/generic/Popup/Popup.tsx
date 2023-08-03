@@ -1,20 +1,20 @@
 import React from 'react'
 import { useAppSelector } from '../../../hooks'
 import { AddClient, AddSingle } from './PopupType'
-import { hidePopup } from './state/popupState'
+import { hidePopup, selectPopupBills } from './state/popupState'
 import style from './style.module.css'
 import Controller from './Controller'
-import { selectEntireState } from '../../../states/globalState'
+import { SeeInvoce } from './PopupType/SeeInvoce/SeeInvoce'
 
 export const Popup = ({dispatch}) => {
-  const controller = Controller.getInstance(dispatch, useAppSelector(selectEntireState))
-  const { type } = controller.state.popup
-  if(type == 'none')
+  const controller = Controller.getInstance(dispatch, useAppSelector(selectPopupBills))
+  const { getType } = controller
+  if(getType() == 'none')
     return <></>
   return <div className={style.container}>
     <div className={style.background} onClick={async () => dispatch(hidePopup())} />
     {
-      type == 'addCategory' || type == 'completeBill' ?
+      getType() == 'addCategory' || getType() == 'completeBill' ?
         <AddSingle 
           style={style} 
           dispatch={dispatch}

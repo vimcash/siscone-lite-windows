@@ -7,49 +7,57 @@ import Controller from './Controller'
 import style from './style.module.css'
 const InventoryFrame = ({dispatch}:any) => {
   const {
-    inventory,
     onChangeProduct,
     onChangeQty,
     save,
-    setClean
+    setClean,
+    getSearch,
+    getTitles,
+    getProductID,
+    getQty,
+    getFilterList,
+    getProductList,
+    onChangeSearch,
+    onDoubleClick
   } = Controller.getInstance(dispatch, useAppSelector(selectReceivables))
   return <>
     <Input 
       name="iptSearch" 
       className={style.input} 
       placeholder="Busca un Producto..." 
-      value="" 
-      onChange={e => console.log(e)}/>
+      value={getSearch()}
+      onChange={onChangeSearch()}/>
     <div className='row'>
-      <div className="col-md-6">
+      <div className={`${style.tableContainer}`}>
         <Table 
-          titles={inventory.titles}
-          dataSource={inventory.filterList || []} />
+          titles={getTitles()}
+          dataSource={getFilterList()} 
+          onDoubleClickWithIndexID={onDoubleClick()}/>
       </div>
-      <div className="col-md-6">
+      <div className={`${style.subContainer}`}>
         <label>Producto</label>
         <ComboBox
           name='cbProduct'
           className=''
-          dataSource={inventory.productList || []}
+          dataSource={getProductList()}
           onChange={e => onChangeProduct(e.target.value)}
-          value={inventory.productID} 
+          value={getProductID()} 
           placeHolder="Seleccionar producto"/>
         <label className='mt-2'>Cantidad</label>
         <Input
           className={style.inputNumber}
-          value={inventory.qty}
+          value={getQty()}
           placeholder=''
           name="iptQty"
-          onChange={e => onChangeQty(e)} 
+          onChange={onChangeQty} 
           type="number" />
         <div className={style.btnContainer}>
           <Button 
             icon="cancel" 
-            onClick={() => setClean()}/>
+            onClick={setClean}/>
           <Button 
             icon="save" 
-            onClick={() => save()}
+            onClick={save}
             primary/>
         </div>
       </div>

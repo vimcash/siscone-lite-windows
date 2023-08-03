@@ -28,3 +28,11 @@
 .specialBtnContainer > button {
   font-size: 1.2em;
 }
+.tableContainer {
+  height: 88vh;
+  flex: 8;
+  padding-right: 0;
+}
+.subContainer {
+  flex: 4
+}

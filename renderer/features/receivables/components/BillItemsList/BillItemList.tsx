@@ -13,12 +13,12 @@ const BillItemList = ({dataSource, onClick, selectedItem, onDoubleClick}) => {
             <StatusText 
               status={columByIndex(item, 3)} 
               text={
-                columByIndex(item, 3) == "C" ? "facturado" : 
-                  columByIndex(item, 3) == "P" ? "pendiente" : 
-                    columByIndex(item, 3) == "D" ? "cancelada" : "indefinido"}/>
+                columByIndex(item, 3) == "C" ? "Facturado" : 
+                  columByIndex(item, 3) == "P" ? "Pendiente" : 
+                    columByIndex(item, 3) == "D" ? "Cancelada" : "Indefinido"}/>
           </div>
           <div className={style.mainContent}>
-            <span>{`${columByIndex(item, 0)} - $${columByIndex(item, 2)}`}</span>
+            <span>{`${columByIndex(item, 0)} - $${Number(columByIndex(item, 2)).toFixed(2)}`}</span>
             <span>{formatDate(columByIndex(item, 4), "dd/MM/yyyy hh:mm")}</span>
           </div>
           <hr className={style.hr}/>

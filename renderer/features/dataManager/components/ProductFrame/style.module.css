@@ -2,20 +2,51 @@
   position: relative;
   bottom: 2.5px;
 }
-
+.inputSearch {
+  padding: 0.5em;
+  margin-top: 0.25em;
+  margin-bottom: 0.5em;
+}
 .input {
   width: -webkit-fill-available;
 }
+
 .table {
   height: 76%;
   transition: 0.2s;
 }
+
 .inputName {
   width: 100%;
   padding-top: 0.25rem;
   display: flex;
 }
 
+.mainBtn {
+  margin-top: .5em;
+  display: flex;
+  justify-content: space-between;
+}
+
+.mainBtn > button {
+  height: 35px;
+  width: calc(50% - 3px);
+}
+
+.mainBtn > button > span > svg {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.mainSubContainer {
+  flex: 8;
+  padding-right: 0;
+  height: 80vh
+}
+.subContainer {
+  flex: 4;
+  /* padding-right: 0; */
+}
 @media (max-height:653px){
   .table { height: 75% !important;}
 }

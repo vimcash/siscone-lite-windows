@@ -1,4 +1,4 @@
-import { Button, ComboBox, RadioButton } from ".."
+import { Button, RadioButton } from ".."
 import { CalendarButton, InputLabel } from "../../form"
 
 export const AdminFilterPad = ({ 
@@ -17,7 +17,7 @@ export const AdminFilterPad = ({
 }) => {
   return (
     <div className="row pe-2 ps-2">
-      <RadioButton 
+      {/* <RadioButton 
         className="mb-1 me-1 col-sm-auto checkbox"
         onClick={e => onClickRadio(e)}
         options={radioOptions} 
@@ -49,7 +49,7 @@ export const AdminFilterPad = ({
         icon="excel"
         title="Exportar"
         left primary
-        onClick={() => onClickReport()}/>
+        onClick={() => onClickReport()}/> */}
     </div>
   )
 }

@@ -1,7 +1,7 @@
 import React from 'react'
 import { ComboBox, Input } from '../../../../components/form'
 import style from './style.module.css'
-import { Button, Table } from '../../../../components/ui'
+import { Button, Spinner, Table } from '../../../../components/ui'
 import Controller from './Controller'
 import { useAppSelector } from '../../../../hooks'
 import { selectEntireState } from '../../../../states/globalState'
@@ -11,9 +11,15 @@ const BillsFrame = ({dispatch, billID}:any) => {
   const {
     inputs,
     showCompleteBillPopup,
-    bills
+    bills,
+    onClickItem,
+    getGoBack,
+    goBack
   } = Controller.getInstance(dispatch, state, billID)
-  console.log(bills.filterList)
+  if(getGoBack()){
+    goBack()
+    return <Spinner />
+  }
   return <>
     <Input 
       name="iptSearch" 
@@ -22,12 +28,13 @@ const BillsFrame = ({dispatch, billID}:any) => {
       value="" 
       onChange={e => console.log(e)}/>
     <div className="row">
-      <div className="col-8">
+      <div className={style.tableContainer}>
         <Table 
           titles={['Producto', 'Categoria', 'Cantidad']}
+          functionWithIndexID={{func: onClickItem, indexID: 5}}
           dataSource={bills.filterList || []}/>
       </div>
-      <div className="col-4 ps-0">
+      <div className={style.subContainer}>
         {
           inputs().map(({type, name, title, value, onChange, onEnter, onClickSearch, onClickCreate, onClickAdd, data, subtitle, disable}:any) => <div key={name}>
             <label>{title}{subtitle ? <i>{subtitle}</i>:<></>}</label>

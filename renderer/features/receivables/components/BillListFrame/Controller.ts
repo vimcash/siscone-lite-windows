@@ -1,14 +1,13 @@
 import { setCurrPage } from "../../../../states/globalState"
 import { setDelay } from "../../../../utils"
 import { useGetBills } from "../../hooks"
-import { fullClean, setSelectedBillID } from "../../state/billsState/billsState"
+import { fullClean, setSearchBill, setSelectedBillID } from "../../state/billsState/billsState"
 import Bill from '../BillsFrame/Controller'
 
 let dispatch
 class Controller {
   static instance: Controller
-  public bills
-  public billsList
+  private bills
   private router
   constructor(inDispatch, router) {
     dispatch = inDispatch
@@ -30,12 +29,12 @@ class Controller {
     dispatch = undefined
     delete Controller.instance
   }
-  public refreshData = (state) => {
-    this.billsList = state.billsFilter
-    this.bills = state
-  }
-
+  private refreshData = (state) => this.bills = state
+  public getBillsList = () => this.bills.billsFilter || []
+  public getSelectedBillID = () => this.bills?.selectedBillID || "" 
+  public getSearchBill = () => this.bills?.searchBill || "" 
   public onClickBill = (billID) => dispatch(setSelectedBillID(billID))
+  public onChangeFilter = (filterText) => dispatch(setSearchBill(filterText))
   private loadData() {
     dispatch(useGetBills())
   }

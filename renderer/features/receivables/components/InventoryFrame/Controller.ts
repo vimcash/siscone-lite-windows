@@ -3,12 +3,12 @@ import { setDelay, setFocus } from "../../../../utils"
 import { useGetDBProduct } from "../../../dataManager/hooks"
 import { useAddInventory } from "../../hooks"
 import { useGetInventory } from "../../hooks/useGetInventory"
-import { setClean, setProductID, setQty } from "../../state/inventoryState/inventoryState"
+import { setClean, setProductID, setQty, setSearchInventory } from "../../state/inventoryState/inventoryState"
 
 let dispatch
 class Controller {
   static instance
-  public inventory
+  private inventory
 
   constructor(inDispatch:any, state:any) {
     dispatch = inDispatch
@@ -39,9 +39,20 @@ class Controller {
     dispatch(setCurrPage('receivables/inventory'))
   }
   public setClean = () => dispatch(setClean())
-  public onChangeProduct = (e:number) => dispatch(setProductID(e))
+  public getSearch = () => this.inventory.search
+  public getTitles = () => this.inventory.titles
+  public getProductID = () => this.inventory.productID
+  public getQty = () => this.inventory.qty
+  public getFilterList = () => this.inventory.filterList || []
+  public getProductList = () => this.inventory.productList || []
+  public onChangeProduct = (e:number) => {
+    dispatch(setProductID(e))
+    setFocus("iptQty")
+  }
+  public onChangeSearch = (e) => dispatch(setSearchInventory(e))
+  public onDoubleClick = () => ({func: this.onChangeProduct, indexID: 4})
   private checkValues = () => {
-    const { productID, qty } = Controller.instance.inventory
+    const { productID, qty } = this.inventory
     if(qty == 0)
       setFocus("iptQty")
     if(productID == "")

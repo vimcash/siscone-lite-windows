@@ -1,0 +1,23 @@
+.container > table {
+  max-width: 100%;
+}
+.container {
+  overflow-y: auto;
+  width: 100%;
+  height: inherit;
+  padding-right: 5px;
+}
+.container tr {
+  cursor: pointer;
+  user-select: none;
+}
+.container > table > tbody tr {
+  transition: opacity 0.5s;
+}
+.container td, .container th{
+  background: none;
+}
+.container > table > tbody tr:active {
+  opacity: 0.5;
+  background-color: rgba(255, 255, 255, 0.02);
+}

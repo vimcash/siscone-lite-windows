@@ -13,6 +13,7 @@ const initialState:Inventory = {
   filterList: null,
   search: "",
   productList: null,
+  selectedItem: "",
   productID: "",
   qty: 0,
   status: 'idle'
@@ -66,5 +67,5 @@ const inventorySlice = createSlice({
   }
 })
 
-export const { setProductID, setQty, setClean } = inventorySlice.actions
+export const { setProductID, setQty, setClean, setSearchInventory, setSelectedItem } = inventorySlice.actions
 export const inventoryReducer = inventorySlice.reducer

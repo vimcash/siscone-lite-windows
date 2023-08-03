@@ -79,3 +79,14 @@
 .inputContainer > button:hover {
   background: rgb(10, 123, 201);
 }
+
+.invoceTitle {
+  color: #fff !important;
+}
+
+.invoiceDetail {
+  color: #fff !important;
+  font-size: 15px;
+  font-style: italic;
+  display: block;
+}

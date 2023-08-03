@@ -1,13 +1,7 @@
-import { nodeFirebird } from "../../../lib/nodeFirebird"
-import getDBCategory from "./getDBCategory"
+import axios from "../../../lib/axios"
 
-const addDBCategory = async (inCategoryName:string) => {
-  const category = await nodeFirebird(`SELECT category_id, category_name FROM SP_ADD_CATEGORY('${inCategoryName}')`)
-  const categories = await getDBCategory()
-  return {
-    created: category[0],
-    list: categories
-  }
-}
-
+const addDBCategory = 
+  async (inCategoryName:string) => 
+    axios({type: 'POST', url: 'http://127.0.0.1:3000/category/add', data: {name: inCategoryName}})
+      .then(resp => resp.data)
 export default addDBCategory

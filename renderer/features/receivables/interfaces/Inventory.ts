@@ -5,6 +5,7 @@ export interface Inventory {
   search: string
   productList: any
   productID: string
+  selectedItem: string
   qty: number
   status: 'idle' | 'pending' | 'rejected'
 }

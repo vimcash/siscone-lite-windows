@@ -4,13 +4,13 @@ import { setDelay } from "../../../../utils"
 import { useAddDBProduct, useGetDBCategory, useGetDBProduct } from "../../hooks"
 import { Product } from "../../interfaces"
 import { setCategoryID, setCleanCategoryID } from "../../state/Category/categoryState"
-import { setClean, setCode, setProductName } from "../../state/Product/productState"
+import { setClean, setCode, setProductName, setSearchProduct } from "../../state/Product/productState"
 
 let dispatch
 class Controller {
   static instace: Controller
-  public category: any
-  public product: Product
+  private category: any
+  private product: Product
 
   constructor(inDispatch:any, state:any) {
     dispatch = inDispatch
@@ -35,9 +35,16 @@ class Controller {
   public showAddCategoryPopup = () => dispatch(showAddCategory())
   public save = () => dispatch(useAddDBProduct(Controller.instace.product))
   public onChangeName = (value:string) => dispatch(setProductName(value))
+  public onChangeSearch = (value:string) => dispatch(setSearchProduct(value))
   public onChangeCategory = (value:number) => dispatch(setCategoryID(value))
   public onChangeCode = (value:string) => dispatch(setCode(value))
   public getProductName = () => this.product.name
+  public getProductCode = () => this.product.code
+  public getCategoryID = () => this.product.categoryID
+  public getCategoryList = () => this.category.itemList || []
+  public getTitles = () => this.product.titles
+  public getProductList = () => this.product.filterList || []
+  public getSearchText = () => this.product.productFilter
   public isPending = () => Controller.instace.product.status == 'pending' || Controller.instace.category.status == 'pending'
   public clean() {
     dispatch(setClean())

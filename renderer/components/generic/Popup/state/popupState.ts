@@ -21,6 +21,6 @@ export const popupSlice = createSlice({
   reducers: actions
 })
 
-export const selectPopup = (state:AppState) => state.popup
+export const selectPopupBills = (state:AppState) => ({...state.popup, bills: state.bills})
 export const { hidePopup, showAddCategory, showAddClient, showCompleteBill, setInput1, setInput2, setInput3, setInput4, setCheckBox } = popupSlice.actions
 export const popupReducer = popupSlice.reducer

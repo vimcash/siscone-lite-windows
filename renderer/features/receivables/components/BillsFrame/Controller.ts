@@ -4,7 +4,9 @@ import { setDelay, setFocus } from "../../../../utils"
 import { useGetDBClient, useGetDBProduct } from "../../../dataManager/hooks"
 import { useAddProductBill } from "../../hooks"
 import { useGetBill } from "../../hooks/useGetBill"
-import { fullClean, setClientID, setProduct, setQty } from "../../state/billsState/billsState"
+import { fullClean, resetGoBack, setClientID, setProduct, setQty } from "../../state/billsState/billsState"
+import { setSelectedItem } from "../../state/inventoryState/inventoryState"
+import Navbar from "../../../../layouts/Navbar/Controller"
 
 let dispatch
 class Controller {
@@ -25,7 +27,6 @@ class Controller {
     this.asyncLoad(billID)
   }
   public static getInstance(inDispatch, state, billID){
-    console.log(billID)
     if(!this.instance)
       this.instance = new Controller(inDispatch, billID)
     this.instance.refreshData(state)
@@ -49,6 +50,11 @@ class Controller {
       delete Controller.instance
     }
   }
+  public goBack = async () => {
+    await dispatch(resetGoBack())
+    await setDelay(.2)
+    Navbar.goBack()
+  }
   private validateEmpty = () => {
     if(typeof window == 'undefined')
       return false
@@ -71,6 +77,8 @@ class Controller {
   private onChangeClient = (e:number) => dispatch(setClientID(e))
   private onChangeProduct = (e:number) => dispatch(setProduct(Controller.instance.productList.find(product => product.id == e)))
   private onChangeQty = (e:number) => dispatch(setQty(e))
+  public onClickItem = (e) => dispatch(setSelectedItem(e))
+  public getGoBack = () => this.bills.goBack
   private save = async() => {
     if(this.validateEmpty()){
       await dispatch(useAddProductBill(Controller.instance.bills))

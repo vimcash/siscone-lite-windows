@@ -25,7 +25,10 @@ export class Controller {
     inst.global = state
     return inst
   }
-
+  public static goBack() {
+    if(this.instace)
+      this.instace.goToHome()
+  }
   private async cleanControllers() {
     Product.clean()
     Inventory.clean()
@@ -47,3 +50,5 @@ export class Controller {
     global.currPage == 'home' ? undefined : router.push(global.currPage != 'receivables/bills' ? '/home' : '/receivables/billList')  
   }
 }
+
+export default Controller

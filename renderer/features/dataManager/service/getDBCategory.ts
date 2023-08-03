@@ -1,8 +1,7 @@
-import { nodeFirebird } from "../../../lib/nodeFirebird"
+import axios from "../../../lib/axios"
 
-const getDBCategory = async () => {
-  const categories = await nodeFirebird('SELECT category_id, name FROM vw_category')
-  return categories
-}
+const getDBCategory = () => 
+  axios({type: 'GET', url: 'http://127.0.0.1:3000/category/list'})
+    .then(resp => resp.data)
 
 export default getDBCategory

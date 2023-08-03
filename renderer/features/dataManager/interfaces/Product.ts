@@ -5,5 +5,6 @@ export interface Product {
   code?: string,
   itemList: any,
   filterList: any,
-  status: string
+  status: string,
+  productFilter: string
 }

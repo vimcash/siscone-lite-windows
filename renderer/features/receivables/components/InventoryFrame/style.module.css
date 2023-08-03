@@ -22,3 +22,11 @@
 .btnContainer > button {
   width: 49.5%;
 }
+.subContainer {
+  flex: 4
+}
+.tableContainer {
+  padding-right: 0;
+  height: 81vh;
+  flex: 8
+}

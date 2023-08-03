@@ -12,6 +12,7 @@ const initialState:Product = {
   name: '',
   itemList: null,
   filterList: null,
+  productFilter: '',
   status: 'unload'
 }
 
@@ -32,7 +33,7 @@ const productSlice = createSlice({
         state.status = 'idle'
         state.code = ''
         state.name = ''
-        const formatedList = payload.map(product => ({...product, id: getColumnByIndex(product, 3), displayName: getColumnByIndex(product, 0)}))
+        const formatedList = payload.list.map(product => ({...product, id: getColumnByIndex(product, 3), displayName: getColumnByIndex(product, 0)}))
         state.itemList = formatedList
         state.filterList = formatedList
         toast.success('Producto creado Exitosamente');
@@ -53,5 +54,5 @@ const productSlice = createSlice({
   },
 })
 
-export const { setProductName, setCode, setClean } = productSlice.actions
+export const { setProductName, setCode, setClean, setSearchProduct } = productSlice.actions
 export const productReducer = productSlice.reducer

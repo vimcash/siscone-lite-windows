@@ -8,6 +8,7 @@ import { useGetBill } from "../../hooks/useGetBill"
 import { useRunComplete } from "../../hooks/useRunComplete"
 
 const initialState = {
+  searchBill: '',
   itemList: null,
   filterList: null,
   billsList: null,
@@ -18,7 +19,8 @@ const initialState = {
   billID: '',
   selectedBillID: '',
   qtyDisp: 0,
-  billNumber: ''
+  billNumber: '',
+  goBack: false
 }
 
 const billsSlice = createSlice({
@@ -38,13 +40,11 @@ const billsSlice = createSlice({
         state.productID = ''
         state.qty = 0
         state.qtyDisp = 0
-        toast.success('Producto Agregado exitosamente!')
       })
       .addCase(useGetBill.fulfilled, (state, {payload}:PayloadAction<any>) => {
         state.itemList = payload.list
         state.filterList = payload.list
         state.billID = getColumnByIndex(payload.created, 0)
-        console.log(getColumnByIndex(payload.created, 0))
         state.clientID = getColumnByIndex(payload.created, 1)
       })
       .addCase(useGetBills.fulfilled, (state, {payload}:PayloadAction<any>) => {
@@ -54,10 +54,11 @@ const billsSlice = createSlice({
       .addCase(useRunComplete.fulfilled, (state, {payload}:PayloadAction<any>) => {
         state.billsList = payload.list
         state.billsFilter = payload.list
-        toast.success("Prueba")
+        toast.success('Factura completada!')
+        state.goBack = true
       })
   },
 })
 
-export const { setClientID, setProduct, setQty, setSelectedBillID, fullClean } = billsSlice.actions
+export const { setClientID, setProduct, setQty, setSelectedBillID, setSearchBill, fullClean, resetGoBack } = billsSlice.actions
 export const billsReducer = billsSlice.reducer

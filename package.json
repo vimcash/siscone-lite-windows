@@ -21,7 +21,6 @@
     "electron-store": "^8.1.0",
     "jspdf": "^2.5.1",
     "jspdf-autotable": "^3.5.28",
-    "mongoose": "^7.0.0",
     "next": "^13.1.1",
     "node-firebird": "^1.1.5",
     "react": "^18.2.0",
@@ -30,8 +29,7 @@
     "react-redux": "^8.0.5",
     "react-toastify": "^9.1.1",
     "sweetalert2": "^11.7.1",
-    "sweetalert2-react-content": "^5.0.7",
-    "vcl-model": "^1.0.69"
+    "sweetalert2-react-content": "^5.0.7"
   },
   "devDependencies": {
     "@types/node": "^18.11.18",
