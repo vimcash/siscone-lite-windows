@@ -43,7 +43,7 @@ const categorySlice = createSlice({
       .addCase(useGetDBCategory.fulfilled, (state, {payload}:PayloadAction<any>) => {
         state.status = 'idle'
         console.log(payload)
-        const formatedList = payload.list.map(category => ({id: getColumnByIndex(category, 0), displayName: getColumnByIndex(category, 1)}))
+        const formatedList = payload.map(category => ({id: getColumnByIndex(category, 0), displayName: getColumnByIndex(category, 1)}))
         state.categoryID = formatedList[0] ? formatedList[0].id : ''
         state.itemList = formatedList
         state.listFilter = formatedList

@@ -4,6 +4,7 @@ import getDBProduct from "./getDBProduct"
 
 const addDBProduct = async ({name, categoryID, code}:Product) => {
   const query = `EXECUTE PROCEDURE sp_add_product('${name}', ${categoryID}, '${code || ''}')`
+  console.log(query)
   const product = await nodeFirebird(query)
   const products = await getDBProduct()
   return {

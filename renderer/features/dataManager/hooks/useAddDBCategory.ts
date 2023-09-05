@@ -3,5 +3,8 @@ import addDBCategory from "../service/addDBCategory";
 
 export const useAddDBCategory = createAsyncThunk(
   'service/addDBCategory',
-  async ({categoryName}:any) => await addDBCategory(categoryName)
+  async ({categoryName}:any) => {
+    const category = await addDBCategory(categoryName)
+    return category
+  }
 )
